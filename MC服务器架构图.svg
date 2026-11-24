@@ -1,0 +1,52 @@
+<svg viewBox="0 0 680 418" width="100%" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Minecraft 群组服的通用架构</title>
+<desc>通用知识图：游戏客户端通过 Velocity 代理的单端口连接，代理把请求路由到多台独立的 Paper 后端，每台后端有自己的世界和插件配置。</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+</defs>
+
+<text x="40" y="26" font-family="sans-serif" font-size="13" font-weight="500" fill="#2C2C2A">一个典型的 Minecraft 群组服长什么样</text>
+
+<rect x="250" y="40" width="180" height="50" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="340" y="58" font-family="sans-serif" font-size="13" font-weight="500" fill="#26215C" text-anchor="middle" dominant-baseline="central">游戏客户端</text>
+<text x="340" y="77" font-family="sans-serif" font-size="11" fill="#534AB7" text-anchor="middle" dominant-baseline="central">Minecraft Java Edition</text>
+
+<line x1="340" y1="90" x2="340" y2="114" stroke="#534AB7" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="350" y="103" font-family="sans-serif" font-size="11" fill="#5F5E5A" dominant-baseline="central">Minecraft 协议 / TCP</text>
+
+<rect x="210" y="118" width="260" height="62" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="340" y="139" font-family="sans-serif" font-size="13" font-weight="500" fill="#042C53" text-anchor="middle" dominant-baseline="central">Velocity（代理层）</text>
+<text x="340" y="159" font-family="sans-serif" font-size="11" fill="#185FA5" text-anchor="middle" dominant-baseline="central">唯一的公网入口 · 转发与路由</text>
+<text x="340" y="173" font-family="sans-serif" font-size="11" fill="#185FA5" text-anchor="middle" dominant-baseline="central">玩家只能看见它，看不见后面的机器</text>
+
+<path d="M340 180 Q340 204 128 218" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arrow)"/>
+<line x1="340" y1="180" x2="340" y2="218" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arrow)"/>
+<path d="M340 180 Q340 204 552 218" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+<rect x="40" y="222" width="176" height="106" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="128" y="243" font-family="sans-serif" font-size="13" font-weight="500" fill="#2C2C2A" text-anchor="middle" dominant-baseline="central">Paper 后端 A</text>
+<text x="128" y="266" font-family="sans-serif" font-size="11" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central">独立的进程与世界</text>
+<text x="128" y="286" font-family="sans-serif" font-size="11" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central">自己的插件组合</text>
+<text x="128" y="306" font-family="sans-serif" font-size="11" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central">自己的配置文件</text>
+<text x="128" y="322" font-family="sans-serif" font-size="11" fill="#2C2C2A" text-anchor="middle" dominant-baseline="central">常用于登录 / 大厅</text>
+
+<rect x="252" y="222" width="176" height="106" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="340" y="243" font-family="sans-serif" font-size="13" font-weight="500" fill="#2C2C2A" text-anchor="middle" dominant-baseline="central">Paper 后端 B</text>
+<text x="340" y="266" font-family="sans-serif" font-size="11" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central">独立的进程与世界</text>
+<text x="340" y="286" font-family="sans-serif" font-size="11" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central">自己的插件组合</text>
+<text x="340" y="306" font-family="sans-serif" font-size="11" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central">自己的配置文件</text>
+<text x="340" y="322" font-family="sans-serif" font-size="11" fill="#2C2C2A" text-anchor="middle" dominant-baseline="central">主游戏服</text>
+
+<rect x="464" y="222" width="176" height="106" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="552" y="243" font-family="sans-serif" font-size="13" font-weight="500" fill="#2C2C2A" text-anchor="middle" dominant-baseline="central">Paper 后端 C</text>
+<text x="552" y="266" font-family="sans-serif" font-size="11" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central">独立的进程与世界</text>
+<text x="552" y="286" font-family="sans-serif" font-size="11" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central">自己的插件组合</text>
+<text x="552" y="306" font-family="sans-serif" font-size="11" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central">自己的配置文件</text>
+<text x="552" y="322" font-family="sans-serif" font-size="11" fill="#2C2C2A" text-anchor="middle" dominant-baseline="central">其他玩法</text>
+
+<rect x="40" y="350" width="600" height="50" rx="8" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+<text x="56" y="370" font-family="sans-serif" font-size="12" fill="#2C2C2A">关键概念：后端之间彼此独立 —— 版本、插件、世界、权限配置都可以不同。</text>
+<text x="56" y="388" font-family="sans-serif" font-size="12" fill="#5F5E5A">代理用 /server &lt;名字&gt; 在后端间跳转；从外部 ping 只能看到代理，看不到后端。</text>
+</svg>
